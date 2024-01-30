@@ -20,26 +20,23 @@ As you are using a modern CloudBees CloudBees CI platform from your operations c
 - Navigate to **Controller-2 > Manage Jenkins > High Availability**
 - Review the information displayed on the High Availability screen about the number of replicas and the replica you are currently using:
 
-![Current Replica](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/transform-cluster-hahs/_images/high-availability-screen.2afc6aa.png)
+![Current Replica](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/transform-cluster-hahs/_images/high-availability-screen.761378e.png)
 
 ## Switch to Another Replica
 - Select the `Reset sticky session` button and reload the **High Availability** screen as many times as needed until you are randomly assigned to the other replica.
 
-![Switch To Different Replica](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/transform-cluster-hahs/_images/other-replica.0506c63.png)
+![Switch To Different Replica](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/transform-cluster-hahs/_images/other-replica.48336de.png)
 
 ## Enable developer mode
 - In the **High Availability** screen, check the **Enable developer mode** and select **Apply**.
 - Reload the **High Availability Screen** and verify the information displayed.
 
 Sample output:
-![Developer Mode Enabled](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/transform-cluster-hahs/_images/developer-mode.2905999.png)
+![Developer Mode Enabled](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/transform-cluster-hahs/_images/developer-mode.19c27e9.png)
 
 ## Switching Back to the Original Replica
 - Navigate to the **Manage Jenkins > High Availability** screen.
 - Select the `Reset sticky session` button and reload the **High Availability** screen as many times as needed until you are back to the original replica (the second one in our case).
-
-Sample output:
-![Switching Back to Original Replica](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/transform-cluster-hahs/_images/developer-mode.2905999.png)
 
 ## Review the HA Information Displayed by the Replica When Running in Developer Mode
 - On `Controller-2` navigate to **Team-CD > Job**.
@@ -47,7 +44,7 @@ Sample output:
 - Verify that the running build adds the name of the replica owning the build to its name.
 
 Example 1. Sample output:
-![Replica Name next to Build](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/transform-cluster-hahs/_images/replica-name.2c04ff3.png)
+![Replica Name next to Build](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/transform-cluster-hahs/_images/replica-name.f776dd9.png)
 
 # LAB 1-2: Improving Business Continuity with CloudBees CI Horizontal Scaling
 
@@ -62,22 +59,22 @@ In this exercise, you will complete the following tasks:
 
 ## Create a New Folder
 Verify that `Controller-2` is running in developer mode:
-![Running in Developer Mode](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/developer-mode.d7258cb.png)
+![Running in Developer Mode](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/developer-mode.6570d95.png)
 
-- At `controller-2` 's root, create a new folder, `task-3-folder`.
+- At `Controller-2` 's root, create a new folder, `task-3-folder`.
 
-![New Folder](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/new-folder.7c298fd.png)
+![New Folder](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/new-folder.f40983a.png)
 
 ## Verify the New Folder Appears on the Other Replica
-- Switch to the other `controller-2` replica and verify that the folder exists and the replicas are synchronized:
+- Switch to the other `Controller-2` replica and verify that the folder exists and the replicas are synchronized:
 
-![New Folder in Sync](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/folder-in-replica.66b634a.png)
+![New Folder in Sync](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/folder-in-replica.06d78d7.png)
 
 ## Switching Back to the Original Replica
 - Navigate to **Controller-2 > Manage Jenkins > High Availability**
 - Select the `Reset sticky session` button and reload the **High Availability** screen as many times as needed until you are randomly assigned to the original replica (**qtv8r** in the example screenshots).
 
-![Reset Sticky Session](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/original-replica.6ecdcb7.png)
+![Reset Sticky Session](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/original-replica.c24c636.png)
 
 ## Create a New Standalone Pipeline
 Inside the `task-3-folder`, create a new Pipeline titled `data-synced-pipeline`. Scroll to the bottom of the Job configuration screen and under the **Pipeline** section, copy and paste the following Jenkinsfile into the **Script** block:
@@ -98,18 +95,18 @@ pipeline {
 
 click **Save** and then **Build Now** to run the Pipeline. Navigate back to the root level of the `task-3-folder` and you should see the following output:
 
-![New Pipeline](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/new-pipeline.f655653.png)
+![New Pipeline](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/new-pipeline.04167e9.png)
 
 ## Verify the New Standalone Pipeline Appears on the Other Replica
 - Switch to the other `Controller-2` replica and verify that the Pipeline exists and the replicas are synchronized:
 
-![Switch Replica](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/pipeline-in-replica.fced74d.png)
+![Switch Replica](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/pipeline-in-replica.a351726.png)
 
 ## Delete the Folder and Verify that the Replicas are in Sync
 - Remove the `task-3-folder` from `Controller-2`.
 - Verify that the replicas are in sync. Visit both replicas to verify that the folder doesn’t appear.
 
-![Folders Deleted](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/no-folder-replica1.41e427b.png)
+![Folders Deleted](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/no-folder-replica1.54c3972.png)
 
 
 # LAB 1-3: Load Distribution with CloudBees CI Horizontal Scaling
@@ -223,6 +220,11 @@ Sample Output:
 ![Name of Current Replica](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/current-replica.fd19238.png)
 
 - Run the Pipeline and open the `Console Output`.
+- Review the logs to figure out the replica that is running the job. For the demo, CloudBees CloudBees CI has scheduled the build to the same replica we were browsing (`controller-2-644bb84b8-hrqsh`).
+
+Sample Output:
+
+![Replica Running Output](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/replica-running-output.2015a39.png)
 
 ## Delete the Replica Running the Build
 - Open the Kubernetes Web Dashboard on https://dashboard:32000. Depending on the time since your last access, you may need to insert the auth token again.
