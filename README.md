@@ -13,7 +13,7 @@ In this exercise, you will complete the following tasks:
 ## Verify that Your Managed Controller Runs in HA mode
 As you are using a modern CloudBees CloudBees CI platform from your operations center’s root level:
 
-- Verify that `controller-2` has two replicas and both are available:
+- Verify that `Controller-2` has two replicas and both are available:
 
 ![Both Replicas Available](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/transform-cluster-hahs/_images/pod-status-column.b2751b2.png)
 
@@ -42,7 +42,7 @@ Sample output:
 ![Switching Back to Original Replica](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/transform-cluster-hahs/_images/developer-mode.2905999.png)
 
 ## Review the HA Information Displayed by the Replica When Running in Developer Mode
-- On `controller-2` navigate to **Team-CD > Job**.
+- On `Controller-2` navigate to **Team-CD > Job**.
 - Run the `Job` Pipeline by selecting **Build Now** on the left navigation pane.
 - Verify that the running build adds the name of the replica owning the build to its name.
 
@@ -61,7 +61,7 @@ In this exercise, you will complete the following tasks:
 - Task 6: Completely delete the folder and verify that the replicas are in sync.
 
 ## Create a New Folder
-Verify that `controller-2` is running in developer mode:
+Verify that `Controller-2` is running in developer mode:
 ![Running in Developer Mode](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/developer-mode.d7258cb.png)
 
 - At `controller-2` 's root, create a new folder, `task-3-folder`.
@@ -80,7 +80,7 @@ Verify that `controller-2` is running in developer mode:
 ![Reset Sticky Session](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/original-replica.6ecdcb7.png)
 
 ## Create a New Standalone Pipeline
-Inside the `task-3-folder` create a new Pipeline `data-synced-pipeline` using the following Jenkinsfile:
+Inside the `task-3-folder`, create a new Pipeline titled `data-synced-pipeline`. Scroll to the bottom of the Job configuration screen and under the **Pipeline** section, copy and paste the following Jenkinsfile into the **Script** block:
 
 ```
 pipeline {
@@ -95,15 +95,18 @@ pipeline {
     }
 }
 ```
+
+click **Save** and then **Build Now** to run the Pipeline. Navigate back to the root level of the `task-3-folder` and you should see the following output:
+
 ![New Pipeline](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/new-pipeline.f655653.png)
 
 ## Verify the New Standalone Pipeline Appears on the Other Replica
-- Switch to the other `controller-2` replica and verify that the Pipeline exists and the replicas are synchronized:
+- Switch to the other `Controller-2` replica and verify that the Pipeline exists and the replicas are synchronized:
 
 ![Switch Replica](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/pipeline-in-replica.fced74d.png)
 
 ## Delete the Folder and Verify that the Replicas are in Sync
-- Remove the `task-3-folder` from `controller-2`.
+- Remove the `task-3-folder` from `Controller-2`.
 - Verify that the replicas are in sync. Visit both replicas to verify that the folder doesn’t appear.
 
 ![Folders Deleted](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/no-folder-replica1.41e427b.png)
@@ -119,8 +122,8 @@ In this exercise, you will complete the following tasks:
 - Task 4: Change the Pipeline configuration to avoid executions every minute.
 
 ## Create a Standalone Pipeline
-- Navigate to `controller-2` and verify that the controller runs in developer mode.
-- Create a Pipeline named `hahs-lab-3-cron-job` using the following Jenkinsfile.
+- Navigate to `Controller-2` and verify that the controller runs in developer mode.
+- Create a new Pipeline titled `hahs-lab-3-cron-job`. Scroll to the bottom of the Job configuration screen and under the **Pipeline** section, copy and paste the following Jenkinsfile into the **Script** block:
 
 ```
 pipeline {
@@ -140,7 +143,7 @@ pipeline {
 Sample Output:
 ![Cron Job](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/new-cron-job.bbd484d.png)
 
-- Run the Pipeline once to enable the cron trigger.
+- Run the Pipeline once to enable the cron trigger by clicking **Build Now**.
 
 ## Verify that Builds are Being Randomly Distributed
 - Wait a few minutes to allow CloudBees CI to run the Pipeline several times.
@@ -154,7 +157,7 @@ Sample Output:
 ![Random Build Execution](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/console-output-replica.de2b47b.png)
 
 ## Disable the Standalone Pipeline to Avoid Executions Every Minute
-- On the Pipeline job page, select **Configure**
+- On the Job Configuration screen for the `hahs-lab-3-cron-job` Pipeline, select **Configure**.
 - Uncheck the **Enabled** checkbox at the top right corner.
 - Select **Save**.
 
@@ -172,8 +175,8 @@ In this exercise, you will complete the following tasks:
 - Task 6: Verify that a new replica is created.
 
 ## Create a Standalone Pipeline
-- Navigate to `controller-2` and verify that it is running in developer mode.
-- Create a new Pipeline `long-running-job` using the following Jenkinsfile:
+- Navigate to `Controller-2` and verify that it is running in developer mode.
+- Create a new Pipeline titled `long-running-job`. Scroll to the bottom of the Job configuration screen and under the **Pipeline** section, copy and paste the following Jenkinsfile into the **Script** block:
 
 ```
 pipeline {
@@ -259,7 +262,7 @@ The [CloudBees S3 Cache Plugin](https://docs.cloudbees.com/plugins/ci/cloudbees-
 > Using AWS S3 to store workspace caches will incur additional costs from AWS. Refer to the [AWS documentation](https://aws.amazon.com/s3/pricing/?nc=sn&loc=4) for S3 pricing information.
 
 ## Verify Configuration of Workspace Caching
-Workspace caching is disabled by default. As an administrator, you can enable this setting on the System configuration page. On `Controller-1`, confirm that workspace caching has been properly configured by first selecting **Manage Jenkins > System**. Navigate to **Workspace Caching** and review the current configuration for the **Cache Implementation**. The **S3 Cache** from the **Cache Manager** list should be selected, as shown in the illustration below.
+Workspace caching is disabled by default. As an administrator, you can enable this setting on the System configuration page. On `Controller-1`, confirm that workspace caching has been properly configured by first selecting **Manage Jenkins > System**. Navigate to **Workspace Caching** and review the current configuration. The **S3 Cache** from the **Cache Manager** list should be selected, as shown in the illustration below.
 
 ![Workspace Caching Configuration](images/workspace-caching-config.png)
 
@@ -334,7 +337,7 @@ Let's take a look at what we need to configure in CloudBees CI to connect to our
 ![Validate AWS Credentials](images/aws-iam-credential-ws-caching.png)
 
 >[!NOTE]
-> Your AWS account must have the right IAM permissions to access the S3 Bucket, and must be able to `list`, `get`, `put`, and `delete` objects in the S3 Bucket.
+> Your AWS account must have the right IAM permissions to access the S3 Bucket, and must be able to `list`, `get`, `put`, and `delete` objects in the S3 Bucket. Please refer to the IAM policy in JSON shared earlier in this lab.
 
 5. It's time to validate the connection from `Controller-1` in CloudBees CI to the S3 bucket we have configured. Directly under the S3 bucket settings, click the **Validate S3 Bucket configuration**. As a result, the following message should be returned, indicating we're ready to use our new S3 bucket to cache build artifacts:
 
@@ -412,13 +415,13 @@ In the Maven pipeline shown above, we'll note two operations related to Workspac
   
 In summary, after we checkout the source code from the `kubernetes-plugin` repository the `readCache` step will not take you by surprise since we haven't written anything to `mvn-cache` yet. We will circle back to that. After Maven is done packaging we will then use the `writeCache` step in our pipeline to include all files under the `.m2/` directory when uploading them to `mvn-cache`.
 
-Navigate to the **workspace-caching-jobs** folder on `Controller-1` and then select the **ikurtz-workspace-caching-demo** Pipeline. 
+Navigate to the **workspace-caching-jobs** folder on `Controller-1` and then select the **workspace-caching-demo** Pipeline. 
 1. Run the Pipeline by clicking **Build Now** and then nagivate to the **Console Output** to follow along with the Build.
 2. Right after the `git` checkout step, you'll see the following message appear in the Console Output as the `readCache` step is executed:
 
 ![Cache Does Not Exist](images/cache-does-not-exist.png)
 
-3. As mentioned before, since we haven't written any files to the `mvn-cach` in the S3 bucket yet ... it will be empty and this build run will download dependencies from the internet.
+3. As mentioned before, since we haven't written any files to the `mvn-cache` in the S3 bucket yet ... it will be empty and this build run will download dependencies from the internet.
 4. When the Pipeline finishes, be sure to take note of the Total Build Time:
 
 ![Build Time without S3 Cache](images/build-time-without-s3-cache.png)
@@ -428,7 +431,7 @@ It's just as important to note the `writeCache` step that's executed to upload t
 ## Running a Maven CI Pipeline Using Workspace Caching
 Now that we've successfully written files to the dedicated cache for this Pipeline, let's see just how much we can reduce the Total Build Time on the next run.
 
-1. Navigate back to the **ikurtz-workspace-caching** job from the Console Output.
+1. Navigate back to the **workspace-caching-demo** job from the Console Output.
 2. Click **Build Now** again and then navigate to the **Console Output** to follow along with the Build.
 3. As expected, when the `readCache` step is executed on this latest Build we can confirm that the `mvn-cache` we just wrote to is found:
 
