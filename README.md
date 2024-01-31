@@ -316,7 +316,7 @@ For the CloudBees S3 Cache plugin specifically, the permissions `s3:PutObject`, 
             ],
             "Resource": [
                 "arn:aws:s3:::cb-se-workspace-caching-demo/",
-                "arn:aws:kms:us-east-1:268150017804:key/73fe2ba6-4124-428d-aaa4-b8e41bd686ff"
+                "arn:aws:kms:us-east-1:268150017804:key/73fe2ba6-4124-428d-aaa4-b8e41bd845TY"
             ]
         }
     ]
@@ -470,3 +470,5 @@ To find the plugin, go to **Manage Jenkins > Manage Plugins > Available Plugins*
 
 > [!IMPORTANT]
 > The CloudBees Pipeline Explorer only supports **Pipeline** builds that start after the plugin is installed and enabled. Beginning with CloudBees CI version 2.401.3.3 and higher, the plugin is automatically installed and enabled.
+
+
