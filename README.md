@@ -483,4 +483,11 @@ For the Pipeline we just ran, we have multiple parallel stages as well as a `Bui
 
 As CI/CD pipelines grow in complexity, alongside your organization ... relying solely on the Console Output becomes extremely inefficient, making solutions like the **CloudBees Pipeline Explorer** very powerful.
 
+Since the Pipeline we just ran uses Maven, navigate to the **Search Bar** above the log file and type in "surefire" then press **Enter**. We're now faced with all of the lines within this particular build log that have the keyword "surefire" in them. From here, it becomes much easier to pinpoint a specific line. For example, choose any given line with the keyword "surefire", click the link, and you are now presented with a new tab which directs you _right_ to that line in the overall build log.
+
+Please close that tab and when you're redirected back to the CloudBees Pipeline Explorer, go ahead and click "Back to log" which will then give you the option to navigate back to the **Search** feature, as shown below:
+
+
+We won't be performing any additional searches for now, so let's **refresh the page** and get back to the original ouput.
+
 
