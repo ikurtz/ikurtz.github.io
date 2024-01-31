@@ -1,5 +1,3 @@
-# Welcome to the CloudBees CI Workshop Featuring HA/HS, Pipeline Explorer, and Workspace Caching
-
 # LAB 1: Configuring High Availability (HA) For Your CloudBees CI Managed Controller
 
 In this exercise, you will complete the following tasks:
