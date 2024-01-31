@@ -1,3 +1,5 @@
-theme: jekyll-theme-minimal
+remote_theme: pages-themes/modernist@v0.2.0
 title: Welcome to the CloudBees CI Workshop - Enabling Your Dev Team with High Availability and Scalability
 description:
+plugins:
+- jekyll-remote-theme
