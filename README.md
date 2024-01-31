@@ -32,6 +32,7 @@ As you are using a modern CloudBees CloudBees CI platform from your operations c
 - Reload the **High Availability Screen** and verify the information displayed.
 
 Sample output:
+
 ![Developer Mode Enabled](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/transform-cluster-hahs/_images/developer-mode.19c27e9.png)
 
 ## Switching Back to the Original Replica
@@ -44,6 +45,7 @@ Sample output:
 - Verify that the running build adds the name of the replica owning the build to its name.
 
 Example 1. Sample output:
+
 ![Replica Name next to Build](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/transform-cluster-hahs/_images/replica-name.f776dd9.png)
 
 # LAB 1-2: Improving Business Continuity with CloudBees CI Horizontal Scaling
@@ -59,6 +61,7 @@ In this exercise, you will complete the following tasks:
 
 ## Create a New Folder
 Verify that `Controller-2` is running in developer mode:
+
 ![Running in Developer Mode](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/developer-mode.6570d95.png)
 
 - At `Controller-2` 's root, create a new folder, `task-3-folder`.
@@ -138,6 +141,7 @@ pipeline {
 }
 ```
 Sample Output:
+
 ![Cron Job](https://training.docs.cloudbees.com/docs/ci-admin-hahs/latest/understand-hahs-coverage/_images/new-cron-job.bbd484d.png)
 
 - Run the Pipeline once to enable the cron trigger by clicking **Build Now**.
