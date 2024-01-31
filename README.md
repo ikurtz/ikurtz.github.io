@@ -456,7 +456,7 @@ In this exercise, you will complete the following tasks:
 - Task 3: Troubleshoot errors associated with a pipeline on one of your Managed Controllers
 - Task 4 (BONUS): Manage the JUnit test results of a pipeline on one of your Managed Controllers
 
-## Introduction to the CloudBees Pipeine Explorer
+## Introduction to the CloudBees Pipeline Explorer
 The CloudBees Pipeline Explorer plugin offers a streamlined approach to troubleshoot pipelines and view logs. This plugin was developed with a focus on performance to improve your experience for log viewing, whether your log files are 5MB, 500MB, or even up to 5GB.
 
 The Pipeline Explorer can visualize the stages of your Pipelines in a tree view that lets you filter the logs by stages. The log viewport can be customized with user preferences for line numbers, displaying ANSI colors from the log text, word wrapping, and custom time formats for timestamps.
@@ -470,5 +470,17 @@ To find the plugin, go to **Manage Jenkins > Manage Plugins > Available Plugins*
 
 > [!IMPORTANT]
 > The CloudBees Pipeline Explorer only supports **Pipeline** builds that start after the plugin is installed and enabled. Beginning with CloudBees CI version 2.401.3.3 and higher, the plugin is automatically installed and enabled.
+
+## Navigating the CloudBees Pipeline Explorer
+
+Navigate to the **workspace-caching-demo > `maven-pipeline-explorer`** Pipeline and click **Build Now** and then navigate to the **CloudBees Pipeline Explorer** for the latest Build.
+
+For the Pipeline we just ran, we have multiple parallel stages as well as a `Build` stage at the end which will build a simple maven application. The **Filter by tree view** gives developers a visualization that is easy to understand. Whereas, in the past you have only the Console Output, which presents several constraints:
+
+- The Console Output provides a linear and textual representation of a pipeline execution, making it challening to quickly identify and isolate issues in complex and multifaceted pipelines.
+- The Console Output lacks helpful visual cues and aids.
+- Large-scale projects with extensive logs may experience performance degredation, causing delays in troubleshooting and potentially software delivery.
+
+As CI/CD pipelines grow in complexity, alongside your organization ... relying solely on the Console Output becomes extremely inefficient, making solutions like the **CloudBees Pipeline Explorer** very powerful.
 
 
