@@ -107,7 +107,7 @@ click **Save** and then **Build Now** to run the Pipeline. Navigate back to the 
 - Remove the `task-3-folder` from `Controller-2`.
 - Verify that the replicas are in sync. Visit both replicas to verify that the folder doesn’t appear.
 
-![Folders Deleted](ha-lab2-replica-sync.png)
+![Folders Deleted](images/ha-lab2-replica-sync.png)
 
 
 # LAB 1-3: Load Distribution with CloudBees CI Horizontal Scaling
